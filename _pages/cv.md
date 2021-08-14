@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* B.S. in Computer Science and Mathematics, Trent University, 2021
+* B.Sc. in Computer Science and Mathematics, Trent University, 2021
 * M.Sc. in Computing, Queen's University (in progress)
   * Vector Scholarship in Artificial Intelligence Recipient 2021-2022
   * NSERC CGS-M Recipient
