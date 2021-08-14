@@ -18,16 +18,16 @@ Education
 
 Research experience
 ======
-* Summer 2021: USRA
+* Summer 2021: NSERC Undergraduate Student Research Award
   * Supervised by Wenying Feng at Trent University and Christian Muise at Queen's University
   * Working on evaluating the representations learned by a discretized DreamerV2 model.
   * Continued developing the Graph Memory LSTM project from the previous summer, in process of submitting for publication.
 
-* Summer 2020: USRA
+* Summer 2020: NSERC Undergraduate Student Research Award
   * Supervised by Wenying Feng at Trent University
   * Assisted with the development of the Graph Memory LSTM model - a combined GNN and LSTM layer for spatiotemporal predictions.
  
-* Summer 2019: USRA
+* Summer 2019: NSERC Undergraduate Student Research Award
   * Supervised by Wenying Feng at Trent University
   * Evaluating how regression predictions can be made with measurements of 'uncertainty'. Focused on predicting length of taxi trips with prediction intervals conveying possible prediction error.
   * Presented work at AMMCS 2019 in Waterloo, ON. Work published by Springer in conference proceedings.
