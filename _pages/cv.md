@@ -11,49 +11,35 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+* B.S. in Computer Science and Mathematics, Trent University, 2021
+* M.Sc. in Computing, Queen's University (in progress)
+  * Vector Scholarship in Artificial Intelligence Recipient 2021-2022
+  * NSERC CGS-M Recipient
 
+Research experience
+======
+* Summer 2021: USRA
+  * Supervised by Wenying Feng at Trent University and Christian Muise at Queen's University
+  * Working on evaluating the representations learned by a discretized DreamerV2 model.
+  * Continued developing the Graph Memory LSTM project from the previous summer, in process of submitting for publication.
+
+* Summer 2020: USRA
+  * Supervised by Wenying Feng at Trent University
+  * Assisted with the development of the Graph Memory LSTM model - a combined GNN and LSTM layer for spatiotemporal predictions.
+ 
+* Summer 2019: USRA
+  * Supervised by Wenying Feng at Trent University
+  * Evaluating how regression predictions can be made with measurements of 'uncertainty'. Focused on predicting length of taxi trips with prediction intervals conveying possible prediction error.
+  * Presented work at AMMCS 2019 in Waterloo, ON. Work published by Springer in conference proceedings.
+  
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Fall 2019 - Winter 2021: Teaching Assistant at Trent University
+  * Led seminars and/or held office hours for Calculus III, Probability, and Applied Calculus.
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Winter 2019 - Winter 2021: Student Marker at Trent University
+  * Marked tests, assignments, and/or exams for Numerical and Computational Methods, Data Structures and Algorithms, Probability, Applied Calculus, Math for Everyday Life, and Digital World.
 
-Publications
+Other
 ======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* RCM Level 10 Piano
