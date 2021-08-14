@@ -81,7 +81,7 @@ analytics:
 # Site Author
 author:
   name             : "Ella Morgan"
-  avatar           : "picture.jpg"
+  avatar           : "profile.png"
   bio              : "MSc Student in Computing at Queen's University. Interested in symbolic representation learning and automated planning."
   location         : "Kingston, ON"
   employer         :
