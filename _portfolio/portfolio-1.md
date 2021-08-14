@@ -4,4 +4,7 @@ excerpt: "We fully discretize DreamerV2 and evaluate the discrete representation
 collection: portfolio
 ---
 
-Nothing here yet, so far just testing.
+DreamerV2 is a model-based RL agent that can play Atari games. The latent representation consists of both continuous and discrete components, where the discrete component is represented as 32 categorical variables, each with 32 categories, i.e. 32 one-hot vectors. In this work we fully discretize DreamerV2 by only providing the discrete component to the policy and image decoder.
+
+![Latent heatmap](https://ellamorgan.ca/images/latent_heatmap.png)  
+Here is a heatmap representing usage of the discrete latent space over several games of Pong. This is a sum of all 32x32 latent states that occur during multiple evaluations, brighter squares indicate a frequently activated category. Many categories are black, indicating low activity. The majority of these black squares are actually 0, they were never used over the course of several games.
