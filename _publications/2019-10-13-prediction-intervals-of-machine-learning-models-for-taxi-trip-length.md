@@ -1,7 +1,7 @@
 ---
 title: "Prediction Intervals of Machine Learning Models for Taxi Trip Length"
 collection: publications
-permalink: /publication/2019-prediction-intervals-of-machine-learning-models-for-taxi-trip-length
+permalink: /publication/2019-10-13-prediction-intervals-of-machine-learning-models-for-taxi-trip-length
 date: 2019-10-13
 venue: 'AMMCS 2019 Conference Proceedings'
 ---
