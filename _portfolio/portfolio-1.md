@@ -8,4 +8,6 @@ DreamerV2 is a model-based RL agent that plays Atari games. The latent represent
 
 ![Latent heatmap](https://ellamorgan.ca/images/latent_heatmap.png)
 
-Here is a heatmap representing usage of the discrete latent space over several games of Pong. This is a sum of all 32x32 latent states that occur over multiple evaluations, brighter squares indicate a frequently activated category. Many categories are black, indicating low activity. The majority of these black squares are actually 0, they were never used over the course of several games.
+Here is a heatmap representing usage of the discrete latent space over several games of Pong. This is a sum of all 32x32 latent states that occur over multiple evaluations, brighter squares indicate a frequently activated category. Many categories are black, indicating low activity. The majority of these black squares are actually 0, they were never activated over the course of several games.
+
+Adding more to this page later.
