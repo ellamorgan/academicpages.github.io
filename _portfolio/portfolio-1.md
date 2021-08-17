@@ -30,3 +30,15 @@ The first things tested were interpolations between states, we found interpolati
 <img src="https://ellamorgan.ca/images/interpolation.gif" height="200">
 
 It can be seen that 'in-between' states don't have much meaning. By the heatmaps we saw that the usage of the latent space is quite sparse. It appears that meaningful states are sparsely distributed throughout the latent space, with seemingly no meaningful interpolations between them.
+
+Score Representation
+-----
+
+Next, we investigate how the score information is embedded in the latent state. Although score shouldn't be relevant for the policy, this information is required by the decoder for reconstructing the input image. First, we group latents based on the left and right scores. Next, we sum all latents in each group, so that we have sums corresponding to each score on each side. We also sum over all groups, and all latent sums are normalized so that the sum over each categorical variable is 1. Then we subtract the average over all latents from each score, so that we may compare how each score differs from the average.
+
+TODO: put all these images into one image.
+
+Probing for Information
+-----
+
+The next experiment performed probes the latent representation for insight on how information is represented. We assume that the most relevant factor for the policy is the location of the ball and it's velocity. We generate data that consists of latent states and information on the ball location and horizontal and vertical velocity. We then train neural networks with varying layers on this data. The results show that a linear probe performs quite poorly, and performance increases as the number of layers in the network are increased. This demonstrates that the information is present in the latent representation, but is not linearly separable and likely embedded in a highly complex manner.
