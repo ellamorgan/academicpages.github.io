@@ -20,8 +20,6 @@ They're good for reading and marking up papers, but not as much for synthesizing
 
 Note Organizers
 ======
-These are for tracking notes, and possibly papers as well.
-
 Google Docs
 ------
 I'd say the major strengths of Google Docs are the document structure view that allows you to easily jump between sections, the ability to have folders within folders when organizing documents, and the (albeit kind of clunky) support for LaTeX equations with the [Auto-LaTeX Equations](https://workspace.google.com/marketplace/app/autolatex_equations/850293439076) add-on. I still use Google Docs for a lot of things. I guess some cons are that you can end up with a lot of tabs open, and I don't always like that you can't have one long document with no separations, things are always split into pages (even if you change the view so there's no space between pages, it's still a little clunky).
