@@ -11,7 +11,7 @@ What is DreamerV2?
 
 DreamerV2 is a model-based reinforcement learning agent trained on the Atari domain. The latent representation consists of both continuous and discrete components, where the discrete component is represented as 32 categorical variables, each with 32 categories. The preceeding diagram represents the original architecture.
 
-<img src="https://ellamorgan.ca/images/dreamerv2.png" height="200">
+<img src="https://ellamorgan.ca/images/dreamerv2.png" height="300">
 
 In the diagram above, the purple dots along the hidden state represent the concatenation of continuous and discrete components. In is work we fully discretize DreamerV2 by only providing the discrete component to the policy, reward predictor, and image decoder. This discrete state is what is being represented at the right of the diagram, it represents information obtained from the encoded input image as well as the continuous hidden memory state.
 
