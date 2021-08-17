@@ -14,7 +14,7 @@ I still haven't worked out a good method of tracking things, but I'll document m
 
 Reference Managers
 ======
-Personally, I use [Papers](https://www.papersapp.com/) as my lab has a subscription. In the past I've also used [Zotero](https://www.zotero.org/) and briefly tested out [Paperpile](https://paperpile.com/). I'd say the differences aren't too major, everything I've tested seems to work quite similarly, althought I'm sure there's small differences in how they feel.
+Personally, I use [Papers](https://www.papersapp.com/) as my lab has a subscription. In the past I've also used [Zotero](https://www.zotero.org/) and briefly tested out [Paperpile](https://paperpile.com/).
 
 They're good for reading and marking up papers, but not as much for synthesizing overviews of groups of papers. While it is possible to group papers in folders, it doesn't feel like enough. I probably need to take more time to better organize these folders, though.
 
