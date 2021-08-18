@@ -38,7 +38,11 @@ Next, we investigate how the score information is embedded in the latent state. 
 
 <img src="https://ellamorgan.ca/images/score_differences.png" height="200">
 
+This doesn't really convey when the categories activated are 'rare', any better way to explore this?
+
 Probing for Information
 -----
 
 The next experiment performed probes the latent representation for insight on how information is represented. We assume that the most relevant factor for the policy is the location of the ball and it's velocity. We generate data that consists of latent states and information on the ball location and horizontal and vertical velocity. We then train neural networks with varying layers on this data. The results show that a linear probe performs quite poorly, and performance increases as the number of layers in the network are increased. This demonstrates that the information is present in the latent representation, but is not linearly separable and likely embedded in a highly complex manner.
+
+I think a better experiemnt would be predicting where the ball will meet the paddle, I should probe for that information instead.
