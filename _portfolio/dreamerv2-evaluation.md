@@ -36,7 +36,7 @@ Score Representation
 
 Next, we investigate how the score information is embedded in the latent state. Although score shouldn't be relevant for the policy, this information is required by the decoder for reconstructing the input image. First, we group latents based on the left and right scores. Next, we sum all latents in each group, so that we have sums corresponding to each score on each side. We also sum over all groups, and all latent sums are normalized so that the sum over each categorical variable is 1. Then we subtract the average over all latents from each score, so that we may compare how each score differs from the average.
 
-TODO: put all these images into one image.
+<img src="https://ellamorgan.ca/images/score_differences.png" height="200">
 
 Probing for Information
 -----
