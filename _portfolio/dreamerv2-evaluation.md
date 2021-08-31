@@ -25,7 +25,7 @@ Here is a heatmap representing usage of the discrete latent space over several g
 Interpolation Experiments
 -----
 
-The first things tested were interpolations between states, we found interpolations by hamming distance to not be meaningful. Since each categorical variable represents a single category, we simply interpolate from latent A to latent B by changing the categorial variables of latent A to match the categories of latent B one variable at a time. We see that this has no meaningful result in the gif below.
+Here we test interpolations between states, we found interpolations by hamming distance to not be meaningful. Since each categorical variable represents a single category, we simply interpolate from latent A to latent B by changing the categorial variables of latent A to match the categories of latent B one variable at a time. We see that this has no meaningful result in the gif below.
 
 <img src="https://ellamorgan.ca/images/interpolation.gif">
 
