@@ -1,6 +1,6 @@
 ---
 title: "Discretized DreamerV2 Evaluation"
-excerpt: "We fully discretize DreamerV2 and evaluate the discrete representation learned by the model. Still in process of updating this page."
+excerpt: "We fully discretize DreamerV2 and evaluate the discrete representation learned by the model. Still in the process of updating this page."
 collection: portfolio
 ---
 
@@ -12,12 +12,8 @@ DreamerV2 is a reinforcement learning agent that builds a world model of it's en
 
 The continuous latent $h_i$ is represented as the purple line, and the discrete latent $z_i$ is shown in green. In this figure, the purple dot connecting $h_i$ and $z_i$ is a concatenation operator, thus the latent state is not fully discretized as the paper might imply.
 
-<br />
-
 ## Our objective
  Our objective in this exploration study is evaluating the learned discrete latents. The goal is an evaluation of whether the discrete prior encourages 'disentanglement' in the learned representation. 
- 
-<br />
 
  ## Our modification
  
@@ -27,15 +23,11 @@ The continuous latent $h_i$ is represented as the purple line, and the discrete 
  
  This modification inhibits performance of the model. Due to compute constraints a proper analysis was not performed, but after 25M world steps a perfect policy for Pong has not been learned with the agent not winning every point. The agent is capable of scoring against the AI in Pong for most points, so we continue on with exploring the learned representation even if imperfect, this is mainly an early analysis into whether anything promising can be obtained from this approach. 
 
-<br />
-
 ## Experimental setup
  
 We trained the discretized model to around 25M world steps on the domain Pong. No thorough study of the performance differences between the continuous + discrete vs. solely the discrete representation has been performed, but it's clear that simply removing the continuous part causes issues with training. Nonetheless, our objective is the study of what it is learning, and as it is capable of scoring against the game's AI we expect that there should be some useful information to be obtained from the learned representation.
 
 To evaluate, we examine the discrete latents along with the input images provided to the model, thus we have frames of the gameplay along with the discrete internal states of the agent. The aim is then to find whatever insight we can from these latent states.
-
-<br />
 
 ## Evaluating the latent space
 The first question is to find the distribution of usage of the latent space. For this we take all latent states that occured over the course of ~160 games of Pong and we sum them, obtaining a count of how many times each variable category was activated over all observed games. The result is a surprisingly sparse image.
@@ -43,8 +35,6 @@ The first question is to find the distribution of usage of the latent space. For
 <img src="https://ellamorgan.ca/images/latent_heatmap.png">
 
 Here each row represents a categorical variable, then columns correspond to the categories of each variable. Bright squares represent a frequently activated category, while dark squares indicate low activity. We note that the majority of squares appear black. Not only are they infrequently used, the actual counts tend to be 0. Thus instead of refering to rare and important events in the game, they are simply never utilized by the model. We note that each variable tends to have a smaller number of categories that it goes through.
-
-<br />
 
 ## Changing single variables
 
@@ -54,8 +44,6 @@ When starting this experiment we were hopeful that the discrete categorical vari
 
 We see that this has little meaning, hinting that concepts are encoded in the representation in a complex manner.
 
-<br />
-
 ## Interpolation experiments
 
 Next we evaluate the latent representation for its ability to interpolate between two distant states. A desirable property may be a smooth transition between two latents as we start from one and change the categorical variables over one by one to match the second latent, slowly transitioning to the latter state as we do so. We perform the experiment by doing just that, changing a single categorical variable of the first latent at a time to match the variables of the second latent. The results are demonstrated below.
@@ -64,8 +52,6 @@ Next we evaluate the latent representation for its ability to interpolate betwee
 
 We find that there is little meaning in the interpolation.
 
-<br />
-
 ## Score evaluation
 
 The previous experiments hint at a complex embedding of game concepts. We explore this deeper by evaluting how game score information is stored in the representation. While this information isn't necessary for the policy, it is required to reconstruct the input image, thus must be encoded in the representation in some way. First we examine statistical differences in the average categorical activations for each score compared to the average utilization across all scores.
@@ -73,8 +59,6 @@ The previous experiments hint at a complex embedding of game concepts. We explor
 <img src="https://ellamorgan.ca/images/score_differences.png">
 
 While it is not exactly clear what these differences mean, it's clear that the patterns displayed appear to differ between scores. Thus scores may be represented in the representation in a quite complex manner.
-
-<br />
 
 ## Probing
 
@@ -90,8 +74,6 @@ To gather the data we collect latent states that occur as the ball is moving tow
 | 3 | 0.74 | 1.94 | 0.56 | 1.37 |
 | 4 | 0.70 | 1.67 | 0.56 | 1.30 |
 | 5 | 0.62 | 1.40 | 0.53 | 1.27 |
-
-<br />
 
 ## Conclusion and next steps
 
