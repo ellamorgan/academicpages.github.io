@@ -50,7 +50,7 @@ Next we evaluate the latent representation for its ability to interpolate betwee
 
 <img src="https://ellamorgan.ca/images/interpolation.gif">
 
-We find that there is little meaning in the interpolation.
+We find that there is little meaning in the interpolation. An interesting next direction to go in may be to find inductive biases that encourage better interpolation. 
 
 ## Score evaluation
 
