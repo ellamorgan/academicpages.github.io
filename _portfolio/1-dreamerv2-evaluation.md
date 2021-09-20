@@ -13,15 +13,15 @@ DreamerV2 is a reinforcement learning agent that builds a world model of it's en
 The continuous latent $h_i$ is represented as the purple line, and the discrete latent $z_i$ is shown in green. In this figure, the purple dot connecting $h_i$ and $z_i$ is a concatenation operator, thus the latent state is not fully discretized as the paper might imply.
 
 ## Our objective
- Our objective in this exploration study is evaluating the learned discrete latents. The goal is an evaluation of whether the discrete prior encourages 'disentanglement' in the learned representation. 
+Our objective in this exploration study is evaluating the learned discrete latents. The goal is an evaluation of whether the discrete prior encourages 'disentanglement' in the learned representation. 
 
- ## Our modification
+## Our modification
  
- As the model is not actually fully discrete, we perform this study by first modifying the agent to have a fully discrete latent representation. This is done simply by changing the concatenation operation. Instead of concatenating continuous and discrete components and passing the concatenation on to the reward, decoder, and policy predictors, we only pass on the discrete component. The continuous hidden state $h_i$ is still passed along as a memory state, but it is no longer seen outside of the world model. The updated architecture is demonstrated in the diagram below. (I created this by drawing over the paper's diagram in GoodNotes).
- 
- <img src="https://ellamorgan.ca/images/dreamerv2_changes.jpg" width=700>
- 
- This modification inhibits performance of the model. Due to compute constraints a proper analysis was not performed, but after 25M world steps a perfect policy for Pong has not been learned with the agent not winning every point. The agent is capable of scoring against the AI in Pong for most points, so we continue on with exploring the learned representation even if imperfect, this is mainly an early analysis into whether anything promising can be obtained from this approach. 
+As the model is not actually fully discrete, we perform this study by first modifying the agent to have a fully discrete latent representation. This is done simply by changing the concatenation operation. Instead of concatenating continuous and discrete components and passing the concatenation on to the reward, decoder, and policy predictors, we only pass on the discrete component. The continuous hidden state $h_i$ is still passed along as a memory state, but it is no longer seen outside of the world model. The updated architecture is demonstrated in the diagram below.
+
+<img src="https://ellamorgan.ca/images/dreamerv2_changes.jpg" width=700>
+
+This modification inhibits performance of the model. Due to compute constraints a proper analysis was not performed, but after 25M world steps a perfect policy for Pong has not been learned with the agent not winning every point. The agent is capable of scoring against the AI in Pong for most points, so we continue on with exploring the learned representation even if imperfect, this is mainly an early analysis into whether anything promising can be obtained from this approach. 
 
 ## Experimental setup
  
