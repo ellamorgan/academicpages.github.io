@@ -6,35 +6,37 @@ collection: portfolio
 
 ## The DreamerV2 model
 
-DreamerV2 is a reinforcement learning agent that builds a world model of it's environment, trained separately from the policy. The agent attains human-level performance on the Atari benchmark, and serves as the first model-based approach to do so. An interesting aspect of this world model is that it's partially discretized. The latent representation of the world model consists of a continuous memory portion that's passed on between states, and a discretized portion represented by 32 categorical variables, each of which has 32 categories. The world model architecture is demonstrated in the figure below, taken from the DreamerV2 paper.
+DreamerV2 is a reinforcement learning agent that builds a world model of it's environment, trained separately from the policy. The agent attains human-level performance on the Atari benchmark, and serves as the first model-based approach to do so. An interesting aspect of this world model is that it's partially discretized. The latent representation of the world model consists of a continuous memory portion, and a discretized portion represented by 32 categorical variables, each of which has 32 categories (i.e. 32 one-hot vectors of length 32). The world model architecture is demonstrated in the figure below, taken from the DreamerV2 paper.
 
 <img src="https://ellamorgan.ca/images/dreamerv2.png" width=700>
 
-The continuous latent $h_i$ is represented as the purple line, and the discrete latent $z_i$ is shown in green. In this figure, the purple dot connecting $h_i$ and $z_i$ is a concatenation operator, thus the latent state is not fully discretized as the paper might imply.
+The continuous latent $h_i$ is represented as the purple line, it serves as the memory that is carried over between states. The discrete latent $z_i$ is shown in green, and represents a combination of information from both the continuous memory state and encoded input image. In this figure, the purple dot connecting $h_i$ and $z_i$ is a concatenation operator, thus the policy, image decoder, and reward predictor take a combination of continuous and discrete values, the latent state is not fully discretized as the paper might imply.
 
 ## Our objective
-Our objective in this exploration study is evaluating the learned discrete latents. The goal is an evaluation of whether the discrete prior encourages 'disentanglement' in the learned representation. 
+
+We aim to evaluate whether representing the latent state as categorical variables acts as an inductive bias that encourages the 'disentanglement' of concepts learned by the model. Complete disentanglement of concepts is not likely to be the case as this is an incredibly difficult objective, thus we aim to evaluate how different concepts are represented in the discrete latent representation and obtain insight into what inductive biases may encourage better disentanglement.
 
 ## Our modification
- 
-As the model is not actually fully discrete, we perform this study by first modifying the agent to have a fully discrete latent representation. This is done simply by changing the concatenation operation. Instead of concatenating continuous and discrete components and passing the concatenation on to the reward, decoder, and policy predictors, we only pass on the discrete component. The continuous hidden state $h_i$ is still passed along as a memory state, but it is no longer seen outside of the world model. The updated architecture is demonstrated in the diagram below.
+
+As the model is not actually fully discrete, we first modify the agent to have a fully discrete latent representation. This is done by simply changing the concatenation operation. Instead of concatenating continuous and discrete components and passing the concatenation on to the reward, decoder, and policy predictors, we only pass on the discrete component. The continuous hidden state $h_i$ is still passed along as a memory state, but its only usage is in the generation of the discrete latents $z_i$ and $\hat{z}_i$. The updated architecture is demonstrated in the diagram below.
 
 <img src="https://ellamorgan.ca/images/dreamerv2_changes.jpg" width=700>
 
-This modification inhibits performance of the model. Due to compute constraints a proper analysis was not performed, but after 25M world steps a perfect policy for Pong has not been learned with the agent not winning every point. The agent is capable of scoring against the AI in Pong for most points, so we continue on with exploring the learned representation even if imperfect, this is mainly an early analysis into whether anything promising can be obtained from this approach. 
+The result is a model that trains much slower and never reaches a perfect policy for Pong after ~25M world steps, when the model with the continuous component should be capable of learning a near perfect policy in this same number of training steps. Due to the compute constraints of our system, we are unable to explore whether there are tweaks that can be made to improve performance of the fully discrete model, so all settings are the defaults found in the code provided by the authors [here](https://github.com/danijar/dreamerv2). This could be an area of improvement in future work, as there may be more ideal experimental settings for training a discretized representation.
 
 ## Experimental setup
- 
-We trained the discretized model to around 25M world steps on the domain Pong. No thorough study of the performance differences between the continuous + discrete vs. solely the discrete representation has been performed, but it's clear that simply removing the continuous part causes issues with training. Nonetheless, our objective is the study of what it is learning, and as it is capable of scoring against the game's AI we expect that there should be some useful information to be obtained from the learned representation.
 
-To evaluate, we examine the discrete latents along with the input images provided to the model, thus we have frames of the gameplay along with the discrete internal states of the agent. The aim is then to find whatever insight we can from these latent states.
+We trained the discretized model to around 25M world steps on the domain Pong. As stated in the previous section, a perfect policy is not learned within this number of training steps, and little improvement was seen after ~20M steps. Although this is unideal it does not necessarily hinder our objective, as we aim to discover how concepts end up represented in the latent state, and we may gain insight into how we can improve the training process for this type of latent representation.
+
+To evaluate, we examine the discrete latents along with their corresponding input images provided to the model, thus we have frames of the gameplay along with the discrete internal states of the agent. We collect this data from evaluation episodes that occur as the model is training.
 
 ## Evaluating the latent space
-The first question is to find the distribution of usage of the latent space. For this we take all latent states that occured over the course of ~160 games of Pong and we sum them, obtaining a count of how many times each variable category was activated over all observed games. The result is a surprisingly sparse image.
+
+First we examine how the latent space is utilized. We take all latent states that occured over the course of ~160 games of Pong and we sum them, obtaining a count of how many times each variable category was activated over all observed games. The result is a surprisingly sparse image.
 
 <img src="https://ellamorgan.ca/images/latent_heatmap.png">
 
-Here each row represents a categorical variable, then columns correspond to the categories of each variable. Bright squares represent a frequently activated category, while dark squares indicate low activity. We note that the majority of squares appear black. Not only are they infrequently used, the actual counts tend to be 0. Thus instead of refering to rare and important events in the game, they are simply never utilized by the model. We note that each variable tends to have a smaller number of categories that it goes through.
+Here each row represents a categorical variable, then columns correspond to the categories of each variable. Bright squares represent a frequently activated category, while dark squares indicate low activity. We note that the majority of squares appear black. Not only are they infrequently used, the actual counts tend to be 0. Thus instead of refering to rare and important events in the game, they are simply never utilized by the model. Each variable appears to only utilize a smaller subset of its possible categories, leading to a sparsely utilized latent space.
 
 ## Changing single variables
 
