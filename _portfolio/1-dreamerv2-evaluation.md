@@ -40,11 +40,11 @@ Here each row represents a categorical variable, then columns correspond to the 
 
 ## Changing single variables
 
-When starting this experiment we were hopeful that the discrete categorical variables provided a 'disentanglement' of game concepts. To test this, we evaluated how the decoded image changes as a single categorical variable is varied. We take on categorical variable, iterate through all categories one at a time, and save the resulting decoded images as a gif to evaluate how it changes.
+When starting this experiment we were hopeful that the discrete categorical variables provided a 'disentanglement' of game concepts. To test this, we evaluated how the decoded image changes as a single categorical variable is altered through all possible categories. We take one categorical variable, iterate through all categories one at a time, and save the resulting decoded images as a gif to evaluate how it changes.
 
 <img src="https://ellamorgan.ca/images/single_variable.gif">
 
-We see that this has little meaning, hinting that concepts are encoded in the representation in a complex manner.
+For most variables no changes are observed as their value changes.
 
 ## Interpolation experiments
 
