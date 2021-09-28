@@ -14,7 +14,7 @@ The continuous latent $h_i$ is represented as the purple line, it serves as the 
 
 ## Our objective
 
-We aim to evaluate whether representing the latent state as categorical variables acts as an inductive bias that encourages the 'disentanglement' of concepts learned by the model. Complete disentanglement of concepts is not likely to be the case as this is an incredibly difficult objective, thus we aim to evaluate how different concepts are represented in the discrete latent representation and obtain insight into what inductive biases may encourage better disentanglement.
+We aim to evaluate whether representing the latent state as categorical variables encourages the 'disentanglement' of concepts learned by the model. While full disentanglement is likely not occuring, we will evaluate how different concepts are represented in the discrete latent representation to identify how the categorical variables may be benefiting the representation and obtain insight into what inductive biases may encourage better disentanglement.
 
 ## Our modification
 
@@ -40,11 +40,13 @@ Here each row represents a categorical variable, then columns correspond to the 
 
 ## Changing single variables
 
-When starting this experiment we were hopeful that the discrete categorical variables provided a 'disentanglement' of game concepts. To test this, we evaluated how the decoded image changes as a single categorical variable is altered through all possible categories. We take one categorical variable, iterate through all categories one at a time, and save the resulting decoded images as a gif to evaluate how it changes.
+In order to determine if there are any identifiable concepts that correspond to categorical variables, we evaluate how the decoded image changes as a single categorical variable is altered through all possible categories. We select one categorical variable, iterate through all categories one at a time, decode the resulting latent state, and save all resulting images as a gif. Below we demonstrate some of the results obtained from one such experiment.
 
 <img src="https://ellamorgan.ca/images/single_variable.gif">
 
-For most variables no changes are observed as their value changes.
+In the top left gif almost no changes can be observed aside from small amounts of noise around the ball. This is what is observed for the majority of categorical variables, very few single variable changes seem to result in visible changes after decoding. In the next three gifs we see examples of decoded latents that do change with the changing of a single categorical variable. While the top right image looks like it may just be due to noise, it appears that this variable may be vital for placing the right paddle in the correct position. In the bottom two figs we observe changes to the left side score. In the bottom left gif, most categories of the altered categorical variable appear to correspond to a 1 in front of the score, changing it from 2 to 12. For the bottom right gif, we see that most categories seem to correspond to a left score of 3. We also briefly see a score of 1, and the original score of 2. An experiment that is currently missing from here is determining if changing these same variables for other latents results in the same effects.
+
+A limitation to this experiment is that it only takes into account visible changes in the decoded image. In future versions of this experiment we may also consider seeing how the predicted action changes based on changes to the latent state. It may also be interesting to set up an experiment where we only change variables between categories that are actually utilized (as demonstrated in the earlier heatmap) and we could use the trained probes from later on to identify whether the predicted location or direction of the ball changes. This may be explored in future work.
 
 ## Interpolation experiments
 
@@ -52,7 +54,7 @@ Next we evaluate the latent representation for its ability to interpolate betwee
 
 <img src="https://ellamorgan.ca/images/interpolation.gif">
 
-We find that there is little meaning in the interpolation. An interesting next direction to go in may be to find inductive biases that encourage better interpolation. 
+We find that there is little meaning in the interpolation. An interesting next direction to go in may be to find inductive biases that encourage better interpolation. Overall, we've identified that there's a lot of sparsity in the learned latent space. Not only are few categories of the variables actually utilized, but in performing these interpolation experiments we also observe that combinations of these utilized variables (in the 'in between' states) are also not necessarily meaningful.
 
 ## Score evaluation
 
@@ -77,8 +79,8 @@ To gather the data we collect latent states that occur as the ball is moving tow
 | 4 | 0.70 | 1.67 | 0.56 | 1.30 |
 | 5 | 0.62 | 1.40 | 0.53 | 1.27 |
 
+It appears that the probe could predict the x coordinate and horizontal velocity better than it could predict the y coordinate and vertical velocity.
+
 ## Conclusion and next steps
 
-This exploration demonstrates that the discrete prior doesn't seem to provide human interpretable disentanglement. Although, only one domain is examined, it may be a limitation of the training, perhaps there is a better method or hyperparameters that would have led to improved training of the model. Perhaps there is some level of disentanglement that has no human percievable meaning.
-
-This serves as an initial exploration of DreamerV2 that will be expanded upon in future work. We will explore inductive biases that can lead to better 'disentanglement' or interpolations between states, then perform similar experiments on those representations to see if there's any improvement.
+This serves as an initial exploration into how DreamerV2 may represent game concepts in its discrete latent space. I believe there is still much more to be explored into how DreamerV2 is representing game concepts in the discrete portion of its latent space. We found embeddings of concepts to be quite complex, and found the utilization of the latent space to be quite sparse. Meaningful future directions could be to implement priors that allow for a more 'compact' representation that encourages meaningful interpolations. 
