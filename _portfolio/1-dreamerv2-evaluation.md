@@ -26,9 +26,7 @@ The result is a model that trains much slower and never reaches a perfect policy
 
 ## Experimental setup
 
-We trained the discretized model to around 25M world steps on the domain Pong. As stated in the previous section, a perfect policy is not learned within this number of training steps, and little improvement was seen after ~20M steps. Although this is unideal it does not necessarily hinder our objective, as we aim to discover how concepts end up represented in the latent state, and we may gain insight into how we can improve the training process for this type of latent representation.
-
-To evaluate, we examine the discrete latents along with their corresponding input images provided to the model, thus we have frames of the gameplay along with the discrete internal states of the agent. We collect this data from evaluation episodes that occur as the model is training.
+We trained the discretized model to around 25M world steps on the domain Pong. As stated in the previous section, a perfect policy is not learned within this number of training steps, and little improvement was seen after ~20M steps. Although this is unideal it does not necessarily hinder our objective, as we aim to discover how concepts end up represented in the latent state, and we may gain insight into how we can improve the training process for this type of latent representation. To evaluate, we examine the discrete latents along with their corresponding input images provided to the model, thus we have frames of the gameplay along with the discrete internal states of the agent. We collect this data from evaluation episodes that occur as the model is training.
 
 ## Evaluating the latent space
 
@@ -79,8 +77,8 @@ To gather the data we collect latent states that occur as the ball is moving tow
 | 4 | 0.70 | 1.67 | 0.56 | 1.30 |
 | 5 | 0.62 | 1.40 | 0.53 | 1.27 |
 
-It appears that the probe could predict the x coordinate and horizontal velocity better than it could predict the y coordinate and vertical velocity.
+It appears that the probe could predict the x coordinate and horizontal velocity significantly better than it could predict the y coordinate and vertical velocity.
 
 ## Conclusion and next steps
 
-This serves as an initial exploration into how DreamerV2 may represent game concepts in its discrete latent space. I believe there is still much more to be explored into how DreamerV2 is representing game concepts in the discrete portion of its latent space. We found embeddings of concepts to be quite complex, and found the utilization of the latent space to be quite sparse. Meaningful future directions could be to implement priors that allow for a more 'compact' representation that encourages meaningful interpolations. 
+This serves as an initial exploration into how DreamerV2 may represent game concepts in its discrete latent space. We found embeddings of concepts to be quite complex, and found the utilization of the latent space to be quite sparse. Meaningful future directions could be to implement priors that allow for a more 'compact' representation that encourages meaningful interpolations, as well as explorations on additional domains. A comparison between this version of DreamerV2 with the fully categorical latent space and the original DreamerV2 which has continuous and categorical components is also left for future work.
