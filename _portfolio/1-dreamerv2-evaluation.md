@@ -6,7 +6,7 @@ collection: portfolio
 
 ## The DreamerV2 model
 
-DreamerV2 is a reinforcement learning agent that builds a world model of it's environment, trained separately from the policy. The agent attains human-level performance on the Atari benchmark, and serves as the first model-based approach to do so. An interesting aspect of this world model is that it's partially discretized. The latent representation of the world model consists of a continuous memory portion, and a discretized portion represented by 32 categorical variables, each of which has 32 categories (i.e. 32 one-hot vectors of length 32). The world model architecture is demonstrated in the figure below, taken from the DreamerV2 paper.
+DreamerV2 [1] is a reinforcement learning agent that builds a world model of it's environment, trained separately from the policy. The agent attains human-level performance on the Atari benchmark, and serves as the first model-based approach to do so. An interesting aspect of this world model is that it's partially discretized. The latent representation of the world model consists of a continuous memory portion, and a discretized portion represented by 32 categorical variables, each of which has 32 categories (i.e. 32 one-hot vectors of length 32). The world model architecture is demonstrated in the figure below, taken from the DreamerV2 paper.
 
 <img src="https://ellamorgan.ca/images/dreamerv2.png" width=700>
 
@@ -82,3 +82,5 @@ It appears that the probe could predict the x coordinate and horizontal velocity
 ## Conclusion and next steps
 
 This serves as an initial exploration into how DreamerV2 may represent game concepts in its discrete latent space. We found embeddings of concepts to be quite complex, and found the utilization of the latent space to be quite sparse. Meaningful future directions could be to implement priors that allow for a more 'compact' representation that encourages meaningful interpolations, as well as explorations on additional domains. A comparison between this version of DreamerV2 with the fully categorical latent space and the original DreamerV2 which has continuous and categorical components is also left for future work.
+
+[1] Hafner, Danijar, et al. "Mastering atari with discrete world models." arXiv preprint arXiv:2010.02193 (2020).
