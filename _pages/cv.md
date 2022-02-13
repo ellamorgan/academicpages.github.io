@@ -13,7 +13,7 @@ Education
 ======
 * M.Sc. in Computing, Queen's University (in progress)
   * Vector Scholarship in Artificial Intelligence Recipient 2021-2022
-  * NSERC CGS-M Recipient
+  * NSERC CGS-M Recipient 2021-2022
 * B.Sc. in Computer Science and Mathematics, Trent University, 2021
 
 Research experience
