@@ -27,6 +27,7 @@ A common approach is to use independent spatial and temporal layers which can ca
 Our proposed solution is to add a separate graph memory state which deals solely with activity in other nodes, while leaving the original memory state (the primary memory) to model temporal dependencies in its own node. The output from the graph memory state is fed into the primary memory as determined by the graph memory’s output gate. This allows the temporal model to become “aware” of network events without directly impacting the output. In addition, feeding the graph memory into the main memory rather than the output ensures that events are directly incorporated into long-term memory, rather than needing to pass through the input gate at the next timestep. 
 
 <img src="https://ryanz8.github.io/images/architecture.png" width="700" />
+
 Figure 2: Our proposed model
 
 The architecture of our proposed model is displayed in Figure 2. The block on the right contains a standard LSTM unit with no graph operations. The block on the left contains the added graph memory component which performs graph operations and stores results separately using its own set of gates. The output of the graph memory component feeds into the memory of the main (non-graph) LSTM unit, allowing spatial information to be introduced only when needed. The inputs $x_t$ and $h_{t-1}$ are the same for both units.
@@ -74,7 +75,7 @@ Figure 5: MAE of models on synthetic data as signal delay is varied. Error for m
 Results on the synthetic path dataset (Figure 5) show that as the delay time for signal propagation increases, this task becomes increasingly difficult for most architectures. After a sufficiently large delay, some models were altogether unable to learn the relationship. However, we see that the graph memory model has an increased ability to retain information about other nodes and performance is not appreciably degraded even up to a delay of 25 timesteps.
 
 ### Traffic and Bike Sharing
-<img src="https://ryanz8.github.io/images/real_world_results.png" width="700" />
+<img src="https://ryanz8.github.io/images/real_world_results.png" width="750" />
 
 Table 1: Results for bike and traffic datasets multiplied by the scale column. Individual temporal and spatial models are listed first. GCN + LSTM denotes stacked GCN and LSTM layers. ASTGCN$_r$ denotes the "recent" component of the ASTGCN model as only the most recent timesteps are given as input to all models. GCN models use trainable edge weights.
 
