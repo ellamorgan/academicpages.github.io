@@ -1,6 +1,6 @@
 ---
 title: "Graph Memory LSTMs: Learning Graph Relationships in Spatiotemporal Data for Time Series Forecasting"
-excerpt: "Overview of the paper Graph Memory LSTMs: Learning Graph Relationships in Spatiotemporal Data for Time Series Forecasting. In process of submitting for publication."
+excerpt: "Overview of the paper Graph Memory LSTMs: Learning Graph Relationships in Spatiotemporal Data for Time Series Forecasting. In process of submitting for publication. This project was completed as part of my USRA in 2020."
 collection: portfolio
 ---
 
