@@ -1,6 +1,6 @@
 ---
 title: "Discretized DreamerV2 Evaluation"
-excerpt: "We fully discretize DreamerV2 and evaluate the discrete representation learned by the model. Still in the process of updating this page."
+excerpt: "We fully discretize DreamerV2 and evaluate the discrete representation learned by the model. This project was completed as part of my USRA in 2021."
 collection: portfolio
 ---
 
