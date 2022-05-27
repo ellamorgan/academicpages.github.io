@@ -14,9 +14,9 @@ One of the biggest issues for a bike sharing system is distribution of bikes acr
 
 Spatiotemporal forecasting requires a neural network to learn both time and space relationships. Many relationships are not purely spatial or purely temporal, but instead span both space and time. This type of diagonal relationship is common in sensor data; a physical event may be detected at one sensor, and later detected at another sensor, separated by a number of timesteps. In order to perform accurate forecasts, we would like the model to learn this time-delayed pattern which moves through space.
 <p float="left">
-  <img src="https://ryanz8.github.io/images/spatiotemporal1.png" width="200" />
-  <img src="https://ryanz8.github.io/images/spatiotemporal2.png" width="200" /> 
-  <img src="https://ryanz8.github.io/images/spatiotemporal3.png" width="200" />
+  <img src="https://ellamorgan.ca/images/spatiotemporal1.png" width="200" />
+  <img src="https://ellamorgan.ca/images/spatiotemporal2.png" width="200" /> 
+  <img src="https://ellamorgan.ca/images/spatiotemporal3.png" width="200" />
 </p>
 
 Figure 1: The spatiotemporal forecasting issue
@@ -26,7 +26,7 @@ A common approach is to use independent spatial and temporal layers which can ca
 ## Our Solution and Methodology
 Our proposed solution is to add a separate graph memory state which deals solely with activity in other nodes, while leaving the original memory state (the primary memory) to model temporal dependencies in its own node. The output from the graph memory state is fed into the primary memory as determined by the graph memory’s output gate. This allows the temporal model to become “aware” of network events without directly impacting the output. In addition, feeding the graph memory into the main memory rather than the output ensures that events are directly incorporated into long-term memory, rather than needing to pass through the input gate at the next timestep. 
 
-<img src="https://ryanz8.github.io/images/architecture.png" width="700" />
+<img src="https://ellamorgan.ca/images/architecture.png" width="700" />
 
 Figure 2: Our proposed model
 
@@ -40,9 +40,9 @@ To explore the ability of models to learn spatiotemporal relationships over long
 ### Synthetic
 The synthetic path dataset is designed to test the ability of models to learn spatiotemporal dependencies over long time periods. This consists of a directed path graph, where each vertex in the graph has an edge pointing to the next vertex. Signals appear at random at the first node in the graph and propagate along the edges, with a variable delay for propagation. This is a common pattern in real-world sensor data, where events are first detected at one sensor before appearing at a second sensor. Depending on the sampling rate and the speed of propagation, there may be a delay of several timesteps before it is detected again. As the amount of delay increases, this pattern becomes increasingly difficult to predict; a neural network must be able to retain information of the previous signal without allowing it to affect outputs before the signal reappears.
 <p float="left">
-  <img src="https://ryanz8.github.io/images/delay1.svg" width="200" />
-  <img src="https://ryanz8.github.io/images/delay3.svg" width="200" /> 
-  <img src="https://ryanz8.github.io/images/delay8.svg" width="200" />
+  <img src="https://ellamorgan.ca/images/delay1.svg" width="200" />
+  <img src="https://ellamorgan.ca/images/delay3.svg" width="200" /> 
+  <img src="https://ellamorgan.ca/images/delay8.svg" width="200" />
 </p>
 
 Figure 3: Generated synthetic data with delays of 1, 3, and 8, respectively. The rows correspond to nodes in the network (where each square's node is connected to the node to it's right), the columns are the nodes over time, and their brightness corresponds to their magnitude. It can be best seen in the leftmost figure how the signals are propagating across the graph.
@@ -56,26 +56,26 @@ We use four traffic sensor datasets to evaluate models for this application. The
 ## Results
 ### Synthetic
 <p float="left">
-  <img src="https://ryanz8.github.io/images/comparison_target.svg" width="100" />
-  <img src="https://ryanz8.github.io/images/comparison_lstm.svg" width="100" /> 
-  <img src="https://ryanz8.github.io/images/comparison_gcn.svg" width="100" />
-  <img src="https://ryanz8.github.io/images/comparison_gcnlstm.svg" width="100" />
-  <img src="https://ryanz8.github.io/images/comparison_astgcn.svg" width="100" />
-  <img src="https://ryanz8.github.io/images/comparison_gmlstm.svg" width="100" />
+  <img src="https://ellamorgan.ca/images/comparison_target.svg" width="100" />
+  <img src="https://ellamorgan.ca/images/comparison_lstm.svg" width="100" /> 
+  <img src="https://ellamorgan.ca/images/comparison_gcn.svg" width="100" />
+  <img src="https://ellamorgan.ca/images/comparison_gcnlstm.svg" width="100" />
+  <img src="https://ellamorgan.ca/images/comparison_astgcn.svg" width="100" />
+  <img src="https://ellamorgan.ca/images/comparison_gmlstm.svg" width="100" />
 </p>
 
 Figure 4: From left to right, these are: target, LSTM, GCN, GLSTM, AST-GCN, GM-LSTM (ours). Each image should match the target image if predictions are 100% accurate.
 
 Figure 4 shows sample predictions for various models on the path dataset with a delay of 20. As expected, the GCN alone lacks temporal information and produces poor predictions. The stacked GCN/LSTM model produces predictions noisier than those produced by the graph memory LSTM model. We attribute this to crosstalk between the spatial and temporal layers. In the graph memory model, the gating mechanism reduces this effect and predictions are qualitatively almost identical to the target.
 
-<img src="https://ryanz8.github.io/images/path_delay_comparison.png" width="600" />
+<img src="https://ellamorgan.ca/images/path_delay_comparison.png" width="600" />
 
 Figure 5: MAE of models on synthetic data as signal delay is varied. Error for most models increases as delay is increased; however, graph memory LSTM is able to learn these relationships without significant increase in error up to a delay of 25 timesteps
 
 Results on the synthetic path dataset (Figure 5) show that as the delay time for signal propagation increases, this task becomes increasingly difficult for most architectures. After a sufficiently large delay, some models were altogether unable to learn the relationship. However, we see that the graph memory model has an increased ability to retain information about other nodes and performance is not appreciably degraded even up to a delay of 25 timesteps.
 
 ### Traffic and Bike Sharing
-<img src="https://ryanz8.github.io/images/real_world_results.png" width="750" />
+<img src="https://ellamorgan.ca/images/real_world_results.png" width="750" />
 
 Table 1: Results for bike and traffic datasets multiplied by the scale column. Individual temporal and spatial models are listed first. GCN + LSTM denotes stacked GCN and LSTM layers. ASTGCN$_r$ denotes the "recent" component of the ASTGCN model as only the most recent timesteps are given as input to all models. GCN models use trainable edge weights.
 
