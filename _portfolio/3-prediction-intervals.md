@@ -1,6 +1,6 @@
 ---
 title: "Prediction Intervals of Machine Learning Models for Taxi Trip Length"
-excerpt: "A comparison of methods for predicting taxi trip length with prediction intervals that convey the models condfidence. Presented and published in conference proceedings at AMMCS 2019. This project was completed as part of my USRA in 2019.
+excerpt: "A comparison of methods for predicting taxi trip length with prediction intervals that convey the models condfidence. Presented and published in conference proceedings at AMMCS 2019. This project was completed as part of my USRA in 2019."
 collection: portfolio
 ---
 
