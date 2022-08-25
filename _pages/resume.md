@@ -17,18 +17,18 @@ Research experience
 * Summer 2021: NSERC Undergraduate Student Research Award
   * Researched methods for interpreting a model’s latent space, applied concepts to DreamerV2, a reinforcement learning agent trained on atari games with a partially discretized latent space represented as categorical variables
   * Created and performed tests to identify whether game concepts were easily identifiable in the latent encodings, determined concepts were not easily separable, suggesting room for future improvements
-  * Project page: <ellamorgan.ca/portfolio/1-dreamerv2-eval>
+  * Project page: [ellamorgan.ca/portfolio/1-dreamerv2-eval](ellamorgan.ca/portfolio/1-dreamerv2-eval)
 
 * Summer 2020: NSERC Undergraduate Student Research Award
   * Assisted in creating a novel deep learning model that learned to predict time series on graphs, outperformed other state of the art spatio-temporal models on the ability to remember long term dependencies across nodes in the graph
   * Found, processed and cleaned 6 traffic and bike network datasets, as well as generated a synthetic dataset
   * Reorganized and maintained the code base written in Python with PyTorch, set up experiments comparing other models
-  * Project page: <ellamorgan.ca/portfolio/2-gm-lstm>
+  * Project page: [ellamorgan.ca/portfolio/2-gm-lstm](ellamorgan.ca/portfolio/2-gm-lstm)
  
 * Summer 2019: NSERC Undergraduate Student Research Award
   * Implemented and compared methods for making regression predictions with intervals that convey uncertainty, evaluated which methods best conveyed their uncertainty based on the size of intervals and whether they reflected the accuracy
   * Presented results in a special session at AMMCS 2019 and was published in the conference proceedings
-  * Links to paper and code can be found here: <ellamorgan.ca/portfolio/3-pred-intervals>
+  * Links to paper and code can be found here: [ellamorgan.ca/portfolio/3-pred-intervals](ellamorgan.ca/portfolio/3-pred-intervals)
   
 Work experience
 ======
