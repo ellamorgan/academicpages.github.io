@@ -10,6 +10,12 @@ Education
 * MSc in Computing, Field of Study in Artificial Intelligence, Queen's University, expected April 2023
 * BSc in Computer Science and Mathematics, Trent University, 2021
 
+Scholarships
+======
+* NSERC Canadian Graduate Scholarship - Master's (2021-2022)
+* Vector Scholarship in Artificial Intelligence (2021-2022)
+* Master's Tri-Agency Recipient Recognition Award (2021-2022)
+
 Research experience
 ======
 * NSERC Undergraduate Student Research Award, Summer 2021
@@ -47,12 +53,6 @@ Work experience
 * Teaching Assistant, Sep 2019 - Apr 2021 (Trent University), Sep 2022 - ongoing (Queen's University)
   * Led seminars, recorded seminar videos, and held office hours for Calculus III, Probability, and Applied Calculus
   * Marked tests, assignments, and/or exams for Formal Methods in Software Engineering, Numerical and Computational Methods, Data Structures and Algorithms, Probability, Applied Calculus, Math for Everyday Life, and Digital World
-
-Scholarships
-======
-* NSERC Canadian Graduate Scholarship - Master's (2021-2022)
-* Vector Scholarship in Artificial Intelligence (2021-2022)
-* Master's Tri-Agency Recipient Recognition Award (2021-2022)
 
 Other
 ======
