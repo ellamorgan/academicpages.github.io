@@ -7,8 +7,8 @@ author_profile: true
 
 Education
 ======
-* M.Sc. in Computing, Field of Study in Artificial Intelligence, Queen's University, expected April 2023
-* B.Sc. in Computer Science and Mathematics, Trent University, 2021
+* MSc in Computing, Field of Study in Artificial Intelligence, Queen's University, expected April 2023
+* BSc in Computer Science and Mathematics, Trent University, 2021
 
 Research experience
 ======
