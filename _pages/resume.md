@@ -1,11 +1,9 @@
 ---
 layout: archive
-title: ""
+title: "Resume"
 permalink: /resume/
 author_profile: true
 ---
-
-{% include base_path %}
 
 Education
 ======
@@ -38,7 +36,7 @@ Course projects
 
 * Academic Paper Replication, Fall 2021
   * Replicated the deep learning components of LatPlan, which learns PDDL planning models from noisy observations
-  * Code: [github.com/ellamorgan/Latplan-pytorch](github.com/ellamorgan/Latplan-pytorch)
+  * Code: [github.com/ellamorgan/Latplan-pytorch](github.com/ellamorgan/latplan-pytorch)
 
 * Evolving Finite Automata, Fall 2021
   * Used genetic programming to evolve finite automata given examples of strings that have a shared pattern
