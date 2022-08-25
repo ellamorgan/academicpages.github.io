@@ -29,6 +29,20 @@ Research experience
   * Implemented and compared methods for making regression predictions with intervals that convey uncertainty, evaluated which methods best conveyed their uncertainty based on the size of intervals and whether they reflected the accuracy
   * Presented results in a special session at AMMCS 2019 and was published in the conference proceedings
   * Links to paper and code can be found here: [ellamorgan.ca/portfolio/3-pred-intervals](ellamorgan.ca/portfolio/3-pred-intervals)
+
+Course projects
+======
+* Solving Puzzles with Reinforcement Learning, Winter 2022
+  * Applied Deep Q-Learning and discretized AutoEncoders to solve sliding tile puzzles given images of the states
+  * Code: [github.com/ellamorgan/solving-puzzles-rl](github.com/ellamorgan/solving-puzzles-rl)
+
+* Academic Paper Replication, Fall 2021
+  * Replicated the deep learning components of LatPlan, which learns PDDL planning models from noisy observations
+  * Code: [github.com/ellamorgan/Latplan-pytorch](github.com/ellamorgan/Latplan-pytorch)
+
+* Evolving Finite Automata, Fall 2021
+  * Used genetic programming to evolve finite automata given examples of strings that have a shared pattern
+  * Code: [github.com/ellamorgan/evolving-automata](github.com/ellamorgan/evolving-automata)
   
 Work experience
 ======
