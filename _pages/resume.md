@@ -56,5 +56,6 @@ Work experience
 
 Other
 ======
+* Member of the Graduate Computing Society - SGPS Liason Officer (Sep 2021 - ongoing)
 * RCM Level 10 Piano (2021)
 * Currently learning Mandarin Chinese, focusing on learning to read Chinese novels
