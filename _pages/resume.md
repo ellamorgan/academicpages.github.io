@@ -16,25 +16,25 @@ Education
 Research experience
 ======
 * NSERC Undergraduate Student Research Award, Summer 2021
-  * Researched methods for interpreting a model’s latent space, applied concepts to DreamerV2, a reinforcement learning agent trained on atari games with a partially discretized latent space represented as categorical variables
-  * Created and performed tests to identify whether game concepts were easily identifiable in the latent encodings, determined concepts were not easily separable, suggesting room for future improvements
+  * Researched methods for interpreting a model's latent space and applied interpretability techniques to DreamerV2, a reinforcement learning agent trained on Atari games with a partially discretized latent space
+  * Created and performed tests to identify whether game concepts were easily identifiable in the latent encodings. Determined concepts were not easily separable, suggesting room for future improvements
   * Project page: [ellamorgan.ca/portfolio/1-dreamerv2-eval](ellamorgan.ca/portfolio/1-dreamerv2-eval)
 
 * NSERC Undergraduate Student Research Award, Summer 2020
-  * Assisted in creating a novel deep learning model that learned to predict time series on graphs, outperformed other state of the art spatio-temporal models on the ability to remember long term dependencies across nodes in the graph
-  * Found, processed and cleaned 6 traffic and bike network datasets, as well as generated a synthetic dataset
-  * Reorganized and maintained the code base written in Python with PyTorch, set up experiments comparing other models
+  * Assisted in creating a novel deep learning model that learned to predict time series on graphs. Model outperformed other state-of-the-art spatio-temporal models on the ability to remember long term dependencies across nodes in the graph
+  * Found, processed and cleaned 6 traffic and bike network datasets and created a synthetic dataset
+  * Reorganized and maintained the code base and set up a comparison with a competing model
   * Project page: [ellamorgan.ca/portfolio/2-gm-lstm](ellamorgan.ca/portfolio/2-gm-lstm)
  
 * NSERC Undergraduate Student Research Award, Summer 2019
-  * Implemented and compared methods for making regression predictions with intervals that convey uncertainty, evaluated which methods best conveyed their uncertainty based on the size of intervals and whether they reflected the accuracy
-  * Presented results in a special session at AMMCS 2019 and was published in the conference proceedings
+  * Implemented and compared methods for making regression predictions with intervals that convey uncertainty. Evaluated which methods best conveyed their uncertainty based on the size of intervals and whether they reflected the accuracy
+  * Presented results at AMMCS 2019 and was published in the conference proceedings
   * Links to paper and code can be found here: [ellamorgan.ca/portfolio/3-pred-intervals](ellamorgan.ca/portfolio/3-pred-intervals)
 
 Course projects
 ======
 * Solving Puzzles with Reinforcement Learning, Winter 2022
-  * Applied Deep Q-Learning and discretized AutoEncoders to solve sliding tile puzzles given images of the states
+  * Applied deep Q-Learning and discretized autoencoders to solve sliding tile puzzles given images of the states
   * Code: [github.com/ellamorgan/solving-puzzles-rl](github.com/ellamorgan/solving-puzzles-rl)
 
 * Academic Paper Replication, Fall 2021
@@ -53,6 +53,6 @@ Work experience
 
 Other
 ======
-* Member of the Graduate Computing Society - SGPS Liason Officer (Sep 2021 - ongoing)
+* Member of the Graduate Computing Society (Sep 2021 - ongoing)
 * RCM Level 10 Piano (2021)
 * Currently learning Mandarin Chinese, focusing on learning to read Chinese novels
