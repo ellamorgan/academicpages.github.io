@@ -5,6 +5,8 @@ permalink: /resume/
 author_profile: true
 ---
 
+You can find a pdf copy of my resume [here](https://ellamorgan.ca/files/Ella_Morgan_Resume.pdf).
+
 Education
 ======
 * MSc in Computing, Field of Study in Artificial Intelligence, Queen's University, expected April 2023
