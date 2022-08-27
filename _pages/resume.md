@@ -37,15 +37,15 @@ Course projects
 ======
 * Solving Puzzles with Reinforcement Learning, Winter 2022
   * Applied deep Q-Learning and discretized autoencoders to solve sliding tile puzzles given images of the states
-  * Code: [https://github.com/ellamorgan/solving-puzzles-rl](github.com/ellamorgan/solving-puzzles-rl)
+  * Code: [github.com/ellamorgan/solving-puzzles-rl](https://github.com/ellamorgan/solving-puzzles-rl)
 
 * Academic Paper Replication, Fall 2021
   * Replicated the deep learning components of LatPlan, which learns PDDL planning models from noisy observations
-  * Code: [https://github.com/ellamorgan/latplan-pytorch](github.com/ellamorgan/latplan-pytorch)
+  * Code: [github.com/ellamorgan/latplan-pytorch](https://github.com/ellamorgan/latplan-pytorch)
 
 * Evolving Finite Automata, Fall 2021
   * Used genetic programming to evolve finite automata given examples of strings that have a shared pattern
-  * Code: [https://github.com/ellamorgan/evolving-automata](github.com/ellamorgan/evolving-automata)
+  * Code: [github.com/ellamorgan/evolving-automata](https://github.com/ellamorgan/evolving-automata)
   
 Work experience
 ======
