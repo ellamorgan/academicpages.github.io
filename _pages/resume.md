@@ -8,13 +8,10 @@ author_profile: true
 Education
 ======
 * MSc in Computing, Field of Study in Artificial Intelligence, Queen's University, expected April 2023
+  * NSERC Canadian Graduate Scholarship - Master's (2021-2022)
+  * Vector Scholarship in Artificial Intelligence (2021-2022)
+  * Master's Tri-Agency Recipient Recognition Award (2021-2022)
 * BSc in Computer Science and Mathematics, Trent University, 2021
-
-Scholarships
-======
-* NSERC Canadian Graduate Scholarship - Master's (2021-2022)
-* Vector Scholarship in Artificial Intelligence (2021-2022)
-* Master's Tri-Agency Recipient Recognition Award (2021-2022)
 
 Research experience
 ======
