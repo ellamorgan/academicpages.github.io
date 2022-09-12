@@ -57,4 +57,3 @@ Other
 ======
 * Member of the Graduate Computing Society (Sep 2021 - ongoing)
 * RCM Level 10 Piano (2021)
-* Currently learning Mandarin Chinese, focusing on learning to read Chinese novels
