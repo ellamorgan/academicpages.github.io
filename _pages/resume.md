@@ -53,5 +53,4 @@ Work experience
 
 Other
 ======
-* Member of the Graduate Computing Society (Sep 2021 - ongoing)
 * RCM Level 10 Piano (2021)
