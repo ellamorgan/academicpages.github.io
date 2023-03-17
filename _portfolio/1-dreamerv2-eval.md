@@ -22,6 +22,8 @@ As the model is not actually fully discrete, we first modify the agent to have a
 
 <img src="https://ellamorgan.ca/images/dreamerv2_changes.jpg" width=700>
 
+The difference here is the representation fed into the models that predict $\hat{r}_i$ and $\hat{x}_i$, instead of combining $z_i$ with $h_i$ where $z_i$ is discrete and $h_i$ continuous, we only use $z_i$ making the representation used fully discretized.
+
 The result is a model that trains much slower and never reaches a perfect policy for Pong after ~25M world steps, when the model with the continuous component should be capable of learning a near perfect policy in this same number of training steps. Due to the compute constraints of our system, we are unable to explore whether there are tweaks that can be made to improve performance of the fully discrete model, so all settings are the defaults found in the code provided by the authors [here](https://github.com/danijar/dreamerv2). This could be an area of improvement in future work, as there may be more ideal experimental settings for training a discretized representation.
 
 ## Experimental setup
