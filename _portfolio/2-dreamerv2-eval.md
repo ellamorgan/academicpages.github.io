@@ -4,13 +4,15 @@ excerpt: "We fully discretize DreamerV2 and evaluate the discrete representation
 collection: portfolio
 ---
 
-## The DreamerV2 model
+## Overview
 
-DreamerV2 [1] is a reinforcement learning agent that builds a world model of it's environment, trained separately from the policy. The agent attains human-level performance on the Atari benchmark, and serves as the first model-based approach to do so. An interesting aspect of this world model is that it's partially discretized. The latent representation of the world model consists of a continuous memory portion, and a discretized portion represented by 32 categorical variables, each of which has 32 categories (i.e. 32 one-hot vectors of length 32). The world model architecture is demonstrated in the figure below, taken from the DreamerV2 paper.
+Our goal is to examine the DreamerV2 [1] model to determine whether it's able to 'disentangle' concepts in its latent space. This is an existing reinforcement learning agent that builds a world model of it's environment, trained separately from the policy. The agent attains human-level performance on the Atari benchmark, and is the first model-based approach to do so. An interesting aspect of this world model is that it's partially discretized. The latent representation of the world model consists of a continuous memory portion, and a discretized portion represented by 32 categorical variables, each of which has 32 categories (i.e. 32 one-hot vectors of length 32). It is reported that partially discretizing the latent space results in increased performance, leading to our question of whether this is due to an improved capacity to separate concepts through the use of discrete variables.
+
+The world model architecture is demonstrated in the figure below, taken from the DreamerV2 paper.
 
 <img src="https://ellamorgan.ca/images/dreamerv2.png" width=700>
 
-The continuous latent $h_i$ is represented as the purple line, it serves as the memory that is carried over between states. The discrete latent $z_i$ is shown in green, and represents a combination of information from both the continuous memory state and encoded input image. In this figure, the purple dot connecting $h_i$ and $z_i$ is a concatenation operator, thus the policy, image decoder, and reward predictor take a combination of continuous and discrete values, the latent state is not fully discretized as the paper might imply.
+The continuous latent $h_i$ is represented as the purple line, it serves as the memory that is carried over between states. The discrete latent $z_i$ is shown in green, and represents a combination of information from both the continuous memory state and encoded input image. In this figure, the purple dot connecting $h_i$ and $z_i$ is a concatenation operator, thus the policy, image decoder, and reward predictor take a combination of continuous and discrete values.
 
 ## Our objective
 
@@ -18,17 +20,17 @@ We aim to evaluate whether representing the latent state as categorical variable
 
 ## Our modification
 
-As the model is not actually fully discrete, we first modify the agent to have a fully discrete latent representation. This is done by simply changing the concatenation operation. Instead of concatenating continuous and discrete components and passing the concatenation on to the reward, decoder, and policy predictors, we only pass on the discrete component. The continuous hidden state $h_i$ is still passed along as a memory state, but its only usage is in the generation of the discrete latents $z_i$ and $\hat{z}_i$. The updated architecture is demonstrated in the diagram below.
+As the model is not actually fully discrete, we first modify the agent to have a fully discrete latent representation to fully isolate this aspect of the model. This is done by simply changing the concatenation operation. Instead of concatenating continuous and discrete components and passing the concatenation on to the reward, decoder, and policy predictors, we only pass on the discrete component. The continuous hidden state $h_i$ is still passed along as a memory state, but its only usage is in the generation of the discrete latents $z_i$ and $\hat{z}_i$. The updated architecture is demonstrated in the diagram below.
 
 <img src="https://ellamorgan.ca/images/dreamerv2_changes.jpg" width=700>
 
 The difference here is the representation fed into the models that predict $\hat{r}_i$ and $\hat{x}_i$, instead of combining $z_i$ with $h_i$ where $z_i$ is discrete and $h_i$ continuous, we only use $z_i$ making the representation used fully discretized.
 
-The result is a model that trains much slower and never reaches a perfect policy for Pong after ~25M world steps, when the model with the continuous component should be capable of learning a near perfect policy in this same number of training steps. Due to the compute constraints of our system, we are unable to explore whether there are tweaks that can be made to improve performance of the fully discrete model, so all settings are the defaults found in the code provided by the authors [here](https://github.com/danijar/dreamerv2). This could be an area of improvement in future work, as there may be more ideal experimental settings for training a discretized representation.
-
 ## Experimental setup
 
-We trained the discretized model to around 25M world steps on the domain Pong. As stated in the previous section, a perfect policy is not learned within this number of training steps, and little improvement was seen after ~20M steps. Although this is unideal it does not necessarily hinder our objective, as we aim to discover how concepts end up represented in the latent state, and we may gain insight into how we can improve the training process for this type of latent representation. To evaluate, we examine the discrete latents along with their corresponding input images provided to the model, thus we have frames of the gameplay along with the discrete internal states of the agent. We collect this data from evaluation episodes that occur as the model is training.
+We trained the discretized model to around 25M world steps on the domain Pong. Little improvement to the policy was seen after ~20M steps. We suspect that both fully discretizing the representation and our limited compute resources hinder training, resulting in the learned policy not being optimal within this number of training steps. Although this is unideal it does not necessarily hinder our objective, as we aim to discover how concepts end up represented in the latent state, and we may gain insight into how we can improve the training process for this type of latent representation. All settings are the defaults found in the code provided by the authors [here](https://github.com/danijar/dreamerv2), due to our limited resources a thoroguh investigation of how training dynamics could be improved has not been explored. This could be an area of improvement in future work, as there may be more ideal experimental settings for training a discretized representation.
+
+To evaluate the learned representations, we examine the discrete latents along with their corresponding input images provided to the model, thus we have frames of the gameplay along with the discrete internal states of the agent. We collect this data from evaluation episodes that occur as the model is training.
 
 ## Evaluating the latent space
 
