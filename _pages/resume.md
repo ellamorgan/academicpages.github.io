@@ -44,6 +44,10 @@ Course projects
 * Evolving Finite Automata, Fall 2021
   * Used genetic programming to evolve finite automata given examples of strings that have a shared pattern
   * Code: [github.com/ellamorgan/evolving-automata](https://github.com/ellamorgan/evolving-automata)
+
+* Report on Matroid Theory, Spring 2020
+  * Completed as part of my Undergraduate Mathematics Honours Project at Trent University
+  * Link to report: [Matroid Theory Report](https://ellamorgan.ca/files/matroid-theory-report.pdf)
   
 Work experience
 ======
