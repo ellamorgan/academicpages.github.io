@@ -53,5 +53,4 @@ Not shown in this figure is an additional linear layer after 'Rep.' (the $h$'s),
 
 <img src="https://ellamorgan.ca/images/hmm_trace.png" width=700>
 
-
-This research is still a work in progress. Some initial research and results can be seen from [this poster](https://ellamorgan.ca/files/research-poster.pdf) I recently presented at Vector's Research Symposium.
+I am currently in the process of updating this page as the research is still in progress. Some initial research and results can be seen in [this poster](https://ellamorgan.ca/files/research-poster.pdf) I recently presented at Vector's Research Symposium.
