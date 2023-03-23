@@ -53,4 +53,10 @@ Not shown in this figure is an additional linear layer after 'Rep.' (the $h$'s),
 
 <img src="https://ellamorgan.ca/images/hmm_trace.png" width=700>
 
+### Viterbi's Algorithm
+
+In particular, we mention Viterbi's algorithm. Below is a gif showing the prediction paths that are maintained throughout the algorithm, which I will expand on soon. (For now, just testing my gif!)
+
+<img src="https://ellamorgan.ca/images/hmm.gif" width=700>
+
 I am currently in the process of updating this page as the research is still in progress. Some initial research and results can be seen in [this poster](https://ellamorgan.ca/files/research-poster.pdf) I recently presented at Vector's Research Symposium.
