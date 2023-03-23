@@ -14,4 +14,28 @@ In the four images at the top of the figure we highlight the kind of data we're 
 
 The bottom graphs show the state space - this is how we know the environment to behave. The actual states of the above images are highlighted. There is a directed edge from one state to another in the state space if the second state is reachable from the first through a single action. For example, the second image shown is a state reachable from the first image because the single action taken was "place the shirt in the room", we don't expect that the agent should be able to both place the shirt and move at the same time, as in our example this goes against our knowledge of how the environment should work. The general idea is we have a graph of how we can transition between states, and we expect the sequence of images to align with this understanding of the world. We highlight the states in the state space graph that correspond with the states of the images, showing the path that this sequence of images takes through the graph.
 
+<img src="https://ellamorgan.ca/images/state_graph.gif" width=700>
+
+<img src="https://ellamorgan.ca/images/state_space.jpg" width=700>
+
+
+## The data
+
+Below are examples of the generated data.
+
+<img src="https://ellamorgan.ca/images/grid.png" width=700>
+
+<img src="https://ellamorgan.ca/images/blocksworld.png" width=700>
+
+<img src="https://ellamorgan.ca/images/elevator.png" width=700>
+
+## The model
+
+<img src="https://ellamorgan.ca/images/contrastive_model.png" width=700>
+
+## Aligning algorithms
+
+<img src="https://ellamorgan.ca/images/hmm_trace.png" width=700>
+
+
 This research is still a work in progress. Some initial research and results can be seen from [this poster](https://ellamorgan.ca/files/research-poster.pdf) I recently presented at Vector's Research Symposium.
