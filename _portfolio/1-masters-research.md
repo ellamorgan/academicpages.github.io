@@ -51,11 +51,16 @@ Not shown in this figure is an additional linear layer after 'Rep.' (the $h$'s),
 
 ## Aligning algorithms
 
+Below shows the general problem: the sequence of states $x_1, x_2, x_3, x_4, x_5$ is what we want to predict from the observations shown below. From the predictive model, we have for every state the probability that each prediction is that certain state, and we want to select the sequence of states that maximizes the probability of the observations being those states, while aligning the sequence of predictions with the underlying state space.
+
 <img src="https://ellamorgan.ca/images/hmm_trace.png" width=700>
 
-### Viterbi's Algorithm
+We test three alignment algorithms: a greedy approach, beam search, and Viterbi's algorithm. Below we go into more detail on Viterbi's algorithm.
 
-In particular, we mention Viterbi's algorithm. Below is a gif showing the prediction paths that are maintained throughout the algorithm, which I will expand on soon. (For now, just testing my gif!)
+### Viterbi's Algorithm
+Below is a gif showing the prediction paths that are maintained throughout the algorithm. Viterbi's algorithm finds the most probable state sequence by finding the path that maximizes the joint probability of the observed sequence and the sequence of states. It takes in a hidden Markov model and works by computing, for each possible state at each time step, the probability of the most likely path to that state from the initial state, given the observations up to that time step. These probabilities are calculated recursively using the previous probabilities and the transition probabilities between states.
+
+Below demonstrates the process. Starting with the first observation, it assigns each state a score based on the models output (after taking the log of the probability). Then for the next observation, for every state it looks at all valid states which connect to it from the previous observation (columns in the figure). It finds the connected state with the best score, and updates the score for that state for the given observation as the sum of the log of the state's probability for the given observation with the best connected score from the previous observation. This process continues until reaching the final observation, after which the state in the final column with the highest score is selected, and the previous observations are backtracked through to obtain the sequence of state predictions that resulted in the final score.
 
 <img src="https://ellamorgan.ca/images/hmm.gif" width=700>
 
