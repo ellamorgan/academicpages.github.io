@@ -63,13 +63,17 @@ We test three alignment algorithms: a greedy approach, beam search, and Viterbi'
 
 ### Greedy align
 
-<img src="https://ellamorgan.ca/images/greedy_align.gif" width=700>
+<img src="https://ellamorgan.ca/images/greedy_align.gif" width=500>
 
 ### Beam align
 
-<img src="https://ellamorgan.ca/images/beam_align.gif" width=700>
+<img src="https://ellamorgan.ca/images/beam_align.gif" width=500>
 
 ### Viterbi align
 
-<img src="https://ellamorgan.ca/images/vitervo_align.gif" width=700>
+<img src="https://ellamorgan.ca/images/viterbi_align.gif" width=500>
+
+### Note
+
+This page is still in the process of being updated! For further reference, my thesis can be found [here](https://qspace.library.queensu.ca/handle/1974/31673).
 
