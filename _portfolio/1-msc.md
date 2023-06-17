@@ -59,17 +59,28 @@ Below shows the general problem: the sequence of states $x_1, x_2, x_3, x_4, x_5
 
 <img src="https://ellamorgan.ca/images/hmm_trace.png" width=700>
 
-We test three alignment algorithms: a greedy approach, beam search, and Viterbi's algorithm. Below we go into more detail on Viterbi's algorithm.
+We test three alignment algorithms: a greedy approach, beam search, and Viterbi's algorithm.
 
 ### Greedy align
 
+This method builds the solution in a greedy manner, starting from the beginning of the trace and aligning the predictions one edge at a time. The search is limited to the top-n predictions for each observation, and if a connecting edge isn't found at one step then the best edge between the next pair of observations is chosen. This allows the method to 'come off track' and select a sequence of predictions that may not fully align with the state space.
+
 <img src="https://ellamorgan.ca/images/greedy_align.gif" width=500>
+
+This can be seen in the gif above: first, the best edge between the first two observations is selected, then the method 'continues the chain' by selecting the next best connected edge. After this, there is no next connected edge in the top-n predictions, so the algorithm skips over this edge and finds the best edge between the next two observations. This results in a sequence of states not fully aligned with the graph, but helps the algorithms 'get back on track'. Restricting the search to the best top-n helps prevent poor choices being made that encourage further errors.
 
 ### Beam align
 
+Beam search maintains $W$ solutions at each, where $W$ is the 'beam width'. First, the top-$W$ predictions for the first observation are selected. Then, the corresponding nodes in the graph are expanded to obtain a set of all neighbouring nodes. These neighbouring nodes are all potential candidates for the prediction in the sequence. From this set, the top-$W$ are selected, extending whichever previous prediction they neighboured. If one node was the neighbour of more than one prediction for the previous observation, then the best previous prediction is the one continued on. After reaching the last observation, the path with the best joint probability over all observations is chosen.
+
 <img src="https://ellamorgan.ca/images/beam_align.gif" width=500>
 
+This process is shown above. Note that for every observation, there are always $W$ nodes chosen to continue on from. In the paths maintained by the algorithm, each node only has one incoming edge, but may have multiple outgoing edges.
+
+
 ### Viterbi align
+
+Viterbi's algorithm is an exhaustive approach that finds the optimal solution with respect to the probabilities given by the state prediction model, which itself may be flawed. It is essentially the same as the beam search algorithm shown, with the beam width parameter set to the number of states. For every state prediction for each observation, the algorithm maintains the best path up to that state for that observation. At the end the path with the highest joint probability is selected. 
 
 <img src="https://ellamorgan.ca/images/viterbi_align.gif" width=500>
 
