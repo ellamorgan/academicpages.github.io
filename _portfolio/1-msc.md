@@ -63,11 +63,11 @@ We test three alignment algorithms: a greedy approach, beam search, and Viterbi'
 
 ### Greedy align
 
-This method builds the solution in a greedy manner, starting from the beginning of the trace and aligning the predictions one edge at a time. The search is limited to the top-n predictions for each observation, and if a connecting edge isn't found at one step then the best edge between the next pair of observations is chosen. This allows the method to 'come off track' and select a sequence of predictions that may not fully align with the state space.
+This method builds the solution in a greedy manner, starting from the beginning of the trace and aligning the predictions one edge at a time. The search is limited to the top-$n$ predictions for each observation, and if a connecting edge isn't found at one step then the best edge between the next pair of observations is chosen. This allows the method to 'come off track' and select a sequence of predictions that may not fully align with the state space.
 
 <img src="https://ellamorgan.ca/images/greedy_align.gif" width=500>
 
-This can be seen in the gif above: first, the best edge between the first two observations is selected, then the method 'continues the chain' by selecting the next best connected edge. After this, there is no next connected edge in the top-n predictions, so the algorithm skips over this edge and finds the best edge between the next two observations. This results in a sequence of states not fully aligned with the graph, but helps the algorithms 'get back on track'. Restricting the search to the best top-n helps prevent poor choices being made that encourage further errors.
+This can be seen in the gif above: first, the best edge between the first two observations is selected, then the method 'continues the chain' by selecting the next best connected edge. After this, there is no next connected edge in the top-$n$ predictions, so the algorithm skips over this edge and finds the best edge between the next two observations. This results in a sequence of states not fully aligned with the graph, but helps the algorithms 'get back on track'. Restricting the search to the best top-$n$ helps prevent poor choices being made that encourage further errors.
 
 ### Beam align
 
