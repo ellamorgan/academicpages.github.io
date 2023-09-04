@@ -88,7 +88,13 @@ This process is shown above. At the end, the algorithm backtracks through the ta
 
 ## Results
 
-<img src="https://ellamorgan.ca/images/thesis_results_table.png" width=500>
+Below we highlight the main results.
 
-This page is still in the process of being updated. For further reference, my thesis can be found [here](https://qspace.library.queensu.ca/handle/1974/31673).
+<img src="https://ellamorgan.ca/images/thesis_results_table.png" width=700>
+
+Here, Top-1 acc. represents the accuracy of the top prediction returned by the model, while Top-1 acc. represents how frequently the correct prediction was in the top-5 most likely predictions. Notably, top-5 accuracy is generally quite high, and generally significantly higher than the top-1 accuracy. This is the case even in domains with thousands of states. This result is interesting as it demonstrates that in many cases where the model does not predict the state correctly, the correct state is generally still ranked quite high by the model.
+
+Next, in the Greedy acc., Beam acc., and Viterbi acc. sections we report the accuracy after aligning the predictions with the state-space graph using the respective alignment algorithms. Generally, accuracy is significantly better than the original top-1 accuracy. The most surprising result is in all cases, Beam alignment outperforms Viterbi alignment, while taking only a small fraction of the time. For the Blocks domain with 7057 states, Beam took ~1 minute while Viterbi took over 2.5 hours.
+
+For more in-depth details and results, my thesis can be found [here](https://qspace.library.queensu.ca/handle/1974/31673).
 
