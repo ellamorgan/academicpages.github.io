@@ -86,7 +86,9 @@ Viterbi's algorithm is an exhaustive approach that finds the optimal solution wi
 
 This process is shown above. At the end, the algorithm backtracks through the table to obtain the final sequence.
 
-## Note
+## Results
 
-This page is still in the process of being updated! For further reference, my thesis can be found [here](https://qspace.library.queensu.ca/handle/1974/31673).
+<img src="https://ellamorgan.ca/images/thesis_results_table.png" width=500>
+
+This page is still in the process of being updated. For further reference, my thesis can be found [here](https://qspace.library.queensu.ca/handle/1974/31673).
 
