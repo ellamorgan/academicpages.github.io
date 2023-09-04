@@ -7,11 +7,11 @@ collection: portfolio
 
 ## Motivation
 
-As humans, we reason about our surrounding environments with prior common-sense knowledge that influences our understanding. For example, the expectation that an object will fall when dropped due to gravity, or the understanding that objects cannot teleport or instantly vanish. Ideally, artificial intelligence systems should have this understanding as well.
+As humans, we reason about our surrounding environments with prior common-sense knowledge that influences our understanding. For example, the expectation that an object will fall when dropped due to gravity, or the understanding that objects cannot teleport or instantly vanish. Ideally, artificial intelligence systems should have this understanding as well. Consider a sequence of images showing a robot moving between rooms: in this work, we want to predict the state of the environment in each frame, and we also have an understanding of what transitions are feasible in this environment. We assume that in between frames the robot can move to an adjacent room, but cannot suddenly teleport to an unconnected room. The problem is then to predict the states of these images in a manner that adheres to our expectations for how the environment behaves.
 
 ## Problem setting
 
-In this work, we aim to improve the predictions of a computer vision model through aligning a sequence of images and their predictions with a provided graph structure of the problem. This problem is highlighted below.
+In this work, we aim to improve the predictions of a computer vision model through aligning a sequence of images and their predictions with a graph representing how the system can transition between states. This problem is highlighted below.
 
 <img src="https://ellamorgan.ca/images/state_graph.gif" width=700>
 
@@ -94,7 +94,7 @@ Below we highlight the main results.
 
 Here, top-1 accuracy represents the accuracy of the top prediction returned by the model, while top-5 accuracy represents how frequently the correct prediction was in the top-5 most likely predictions. Notably, top-5 accuracy is generally quite high, and generally significantly higher than the top-1 accuracy. This is the case even in domains with thousands of states. This result is interesting as it demonstrates that in many cases where the model does not predict the state correctly, the correct state is generally still ranked quite high by the model.
 
-Next, in the Greedy accuracy, Beam accuracy, and Viterbi accuracy sections we report the accuracy after aligning the predictions with the state-space graph using the respective alignment algorithms. Generally, accuracy is significantly better than the original top-1 accuracy. The most surprising result is in all cases, Beam alignment outperforms Viterbi alignment, while taking only a small fraction of the time. For the Blocks domain with 7057 states, Beam took ~1 minute while Viterbi took over 2.5 hours.
+Next, in the Greedy accuracy, Beam accuracy, and Viterbi accuracy sections we report the accuracy after aligning the predictions with the state-space graph using the respective alignment algorithms. Generally, accuracy is significantly better than the original top-1 accuracy. The most surprising result is in all cases, Beam alignment outperforms Viterbi alignment, while taking only a small fraction of the time (shown highlighted in purple in the table). For the Blocks domain with 7057 states Beam align took ~1 minute and attained 99.9% accuracy, while Viterbi align took over 2.5 hours and only attained 99.68% accuracy.
 
 While it's not clear why Beam align outperforms Viterbi align, my hypothesis is that Beam align takes advantage of the phenomenon discussed previously - that the correct prediction is generally ranked quite high, with the majority generally being in the top-5 most likely predictions. Since Viterbi searches more exhaustively it could be prone to finding sequences that may appear more feasible, but the predictions are generally ranked lower. Since Beam searches more shallowly it restricts its search to more likely predictions, resulting in an ultimately more accurate trade-off between single prediction likelihood and alignment with the graph.
 
